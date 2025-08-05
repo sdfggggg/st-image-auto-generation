@@ -1,0 +1,129 @@
+<div class="inline-drawer">
+    <div class="inline-drawer-toggle inline-drawer-header">
+        <b data-i18n="Image Auto Generation">Image Auto Generation</b>
+        <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+    </div>
+    <div class="inline-drawer-content">
+        <div class="flex-container flexnowrap">
+            <label for="image_generation_insert_type" class="flex1" data-i18n="Image Insert Type">Image Insert Type</label>
+            <select id="image_generation_insert_type" class="text_pole widthNatural margin0">
+                <option data-i18n="Insert In Current Message" value="inline">Insert In Current Message</option>
+                <option data-i18n="Inline Replace Mode" value="replace">Inline Replace Mode</option>
+                <option data-i18n="Create New Message" value="new">Create New Message</option>
+                <option data-i18n="Disable" value="disabled">Disable</option>
+            </select>
+        </div>
+        <div class="flex-container flexnowrap">
+            <label class="checkbox_label" for="prompt_injection_enabled">
+                <span data-i18n="Enable Prompt Injection">Enable Prompt Injection</span>
+                <input type="checkbox" id="prompt_injection_enabled" class="checkbox">
+            </label>
+        </div>
+        <div class="">
+            <div><label for="prompt_injection_text" class="flex1" data-i18n="Prompt Template">Prompt Template</label></div>
+            <textarea id="prompt_injection_text" class="text_pole textarea_compact" rows="3" placeholder="Prompt that instruct AI to generate image tag"></textarea>
+        </div>
+        <div class="">
+            <div><label for="prompt_injection_regex" class="flex1" data-i18n="Regex">Regex</label></div>
+            <textarea id="prompt_injection_regex" class="text_pole textarea_compact" rows="2" placeholder="Your regex here"></textarea>
+        </div>
+        <div class="flex-container flexnowrap">
+            <label for="prompt_injection_position" class="flex1" data-i18n="Position">Position</label>
+            <select id="prompt_injection_position" class="text_pole widthNatural margin0">
+                <option value="deep_system" data-i18n="at Depth System">@D ⚙️</option>
+                <option value="deep_user" data-i18n="at Depth User">@D 👤</option>
+                <option value="deep_assistant" data-i18n="at Depth AI">@D 🤖</option>
+            </select>
+        </div>
+        <div class="flex-container flexnowrap">
+            <label for="prompt_injection_depth" class="flex1" data-i18n="Depth">Depth</label>
+            <input id="prompt_injection_depth" class="text_pole widthUnset" type="number" min="0" max="100">
+        </div>
+    </div>
+    <div class="flex-container flexnowrap">
+        <label for="image_backend_type" class="flex1" data-i18n="Image Backend">Image Backend</label>
+        <select id="image_backend_type" class="text_pole widthNatural margin0">
+            <option data-i18n="SillyTavern Default" value="default">SillyTavern Default</option>
+            <option data-i18n="STD API" value="stdapi">STD API</option>
+        </select>
+    </div>
+    
+    <div id="std_api_settings" style="display: none;">
+        <h4>STD API 设置</h4>
+        <div class="flex-container flexnowrap">
+            <label for="std_api_key" class="flex1" data-i18n="授权Key">授权Key</label>
+            <input type="text" id="std_api_key" class="text_pole widthNatural margin0">
+        </div>
+        <div class="flex-container flexnowrap">
+            <label for="std_nai_key" class="flex1" data-i18n="NAI官方Key">NAI官方Key</label>
+            <input type="text" id="std_nai_key" class="text_pole widthNatural margin0">
+        </div>
+        <div class="flex-container flexnowrap">
+            <label for="std_api_model" class="flex1" data-i18n="模型">模型</label>
+            <select id="std_api_model" class="text_pole widthNatural margin0">
+                <option value="nai-diffusion-3">nai-diffusion-3</option>
+                <option value="nai-diffusion-furry-3">nai-diffusion-furry-3</option>
+                <option value="nai-diffusion-4-full">nai-diffusion-4-full</option>
+                <option value="nai-diffusion-4-curated-preview">nai-diffusion-4-curated-preview</option>
+                <option value="nai-diffusion-4-5-full">nai-diffusion-4-5-full</option>
+                <option value="nai-diffusion-4-5-curated">nai-diffusion-4-5-curated</option>
+            </select>
+        </div>
+        <div class="flex-container flexnowrap">
+            <label for="std_api_artist" class="flex1" data-i18n="画师">画师</label>
+            <input type="text" id="std_api_artist" class="text_pole widthNatural margin0">
+        </div>
+        <div class="flex-container flexnowrap">
+            <label for="std_api_size" class="flex1" data-i18n="尺寸">尺寸</label>
+            <select id="std_api_size" class="text_pole widthNatural margin0">
+                <option value="竖图">竖图</option>
+                <option value="横图">横图</option>
+                <option value="方图">方图</option>
+            </select>
+        </div>
+        <div class="flex-container flexnowrap">
+            <label for="std_api_scale" class="flex1" data-i18n="提示词引导值">提示词引导值</label>
+            <input type="number" id="std_api_scale" class="text_pole widthNatural margin0" value="5" step="0.1">
+        </div>
+        <div class="flex-container flexnowrap">
+            <label for="std_api_steps" class="flex1" data-i18n="步数">步数</label>
+            <input type="number" id="std_api_steps" class="text_pole widthNatural margin0" value="23">
+        </div>
+        <div class="flex-container flexnowrap">
+            <label for="std_api_cfg_rescale" class="flex1" data-i18n="缩放提示词引导值">缩放提示词引导值</label>
+            <input type="number" id="std_api_cfg_rescale" class="text_pole widthNatural margin0" value="0" step="0.01">
+        </div>
+        <div class="flex-container flexnowrap">
+            <label for="std_api_sampler" class="flex1" data-i18n="采样器">采样器</label>
+            <select id="std_api_sampler" class="text_pole widthNatural margin0">
+                <option value="k_euler_ancestral">k_euler_ancestral</option>
+                <option value="k_euler">k_euler</option>
+                <option value="k_dpmpp_2s_ancestral">k_dpmpp_2s_ancestral</option>
+                <option value="k_dpmpp_2m_sde">k_dpmpp_2m_sde</option>
+                <option value="k_dpmpp_2m">k_dpmpp_2m</option>
+                <option value="k_dpmpp_sde">k_dpmpp_sde</option>
+                <option value="ddim_v3">ddim_v3</option>
+            </select>
+        </div>
+        <div class="flex-container flexnowrap">
+            <label for="std_api_noise_schedule" class="flex1" data-i18n="噪声调度">噪声调度</label>
+            <select id="std_api_noise_schedule" class="text_pole widthNatural margin0">
+                <option value="native">native</option>
+                <option value="exponential">exponential</option>
+                <option value="polyexponential">polyexponential</option>
+                <option value="karras">karras</option>
+            </select>
+        </div>
+        <div class="flex-container flexnowrap">
+            <label class="checkbox_label" for="std_api_use_cache">
+                <span data-i18n="使用缓存">使用缓存</span>
+                <input type="checkbox" id="std_api_use_cache" class="checkbox" checked>
+            </label>
+        </div>
+    </div>
+    
+    <!-- 测试按钮 -->
+    <div class="flex-container flexnowrap">
+        <button id="test_std_api" class="menu_button" style="margin-top: 20px; background-color: #18a366; color: white; padding: 8px 16px;">测试STD API图像生成</button>
+    </div>
+</div> 
